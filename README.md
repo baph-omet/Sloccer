@@ -11,9 +11,11 @@ You'll need to have Python 3.4+ installed for this.
 
 2. Edit `sloccer.py`, editing the `directory` variable at the top to the folder you want to scan, or leave it alone to use whatever directory the script is saved in. This way, you can just copy the script into whatever folder, and you're good to go. Note that it scans recursively.
 
-3. Optionally, edit `languages.py` to add any entries for languages that you want to check. By default, I've added Java, C#, C++, JavaScript, Python, HTML, and CSS. All you need to do to add a new entry is create a new class in the following form:
+3. Optionally, edit `languages.py` to add any entries for languages that you want to check. By default, I've added Java, C#, C++, JavaScript, Python, HTML, and CSS. All you need to do to add a new entry is create a new class in the form below.
 
-Sample language class:
+4. Run `sloccer.py` in Idle, Command Prompt, etc. and it'll spit out the SLOC for your project. Enjoy!
+
+## Sample language class
 
     class LanguageName(Default):
         enabled = True # True or False
@@ -32,6 +34,6 @@ Sample language class:
         
         ignore = [...] # same as above, but with a list of chars to ignore if they're alone on a line, i.e. brackets
         
-Editing this file is optional, however, and is unnecessary for basic projects.
+Editing this file is optional, however, and is unnecessary for basic projects. Since this class inherits the default, if any of these fields are the same as the default, you can delete them. You only have to put in whatever is different.
 
-4. Run `sloccer.py` in Idle, Command Prompt, etc. and it'll spit out the SLOC for your project. Enjoy!
+
