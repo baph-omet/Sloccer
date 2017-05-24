@@ -4,21 +4,21 @@ import languages
 # # # # #
 # Make sure this is set before starting. You can change it from os.getCwd()
 # to whatever directory you want to start in
-directory = os.getCwd()
+directory = os.getcwd()
 # # # # #
 
 def getSlocInFile(filepath):
-	
+
 	bits = filename.split(".")
 	if len(bits) > 0:
 		format = languages.getLanguage(bits[len(bits) - 1])
 		if format != languages.Default:
 			infile = open(dirName + "\\" + filename, "r")
-			
+
 			fileSloc = 0
-			
+
 			inMLC = False
-			
+
 			for line in infile:
 				# print("Examining line: " + line.replace("\n",""))
 				if not inMLC:
@@ -56,7 +56,7 @@ def getSlocInFile(filepath):
 							# print("MLC close found: " + m)
 							inMLC = False
 							break
-			
+
 			infile.close()
 			return fileSloc
 	return 0
@@ -72,8 +72,8 @@ for dirName, subdirList, fileList in os.walk(directory):
 		if (dirName.find(".git") > -1): continue
 		print("Found dirName: " + dirName)
 	except:
-		print("Found a directory that pyton can't print")
-	for subdir in subdirList: 
+		print("Found a directory that python can't print")
+	for subdir in subdirList:
 		try:
 			print("Found subdir: " + str(subdir))
 		except:
@@ -99,10 +99,11 @@ for dirName, subdirList, fileList in os.walk(directory):
 					if fileSloc > maxFileSloc:
 						maxFileSloc = fileSloc
 						maxSlocFile = path
-		else: print("Skipping the files for this script.")
+		else:
+			print("Skipping the files for this script.")
 		"""except:
 			print("Couldn't parse " + dirName + "\\" + filename)"""
-			
+
 
 messages = [
 	"",
